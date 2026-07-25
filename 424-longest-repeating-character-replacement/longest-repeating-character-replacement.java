@@ -7,13 +7,11 @@ class Solution {
         for(int right=0;right<s.length();right++){
             freq[s.charAt(right)-'A']++;
             maxfreq=Math.max(maxfreq,freq[s.charAt(right)-'A']);
-            if((right-left+1)-maxfreq<=k){
-                ans=Math.max(ans,right-left+1);
-            }
-            else{
+            if((right-left+1)-maxfreq>k){
                 freq[s.charAt(left)-'A']--;
                 left++;
             }
+            ans=Math.max(ans,right-left+1);
         }
         return ans;
     }
