@@ -13,8 +13,7 @@ class Solution {
             rightmax[i]=Math.max(rightmax[i+1],height[i]);
         }
         for(int i=0;i<n;i++){
-            int trapped=Math.min(leftmax[i],rightmax[i])-height[i];
-            water+=Math.max(0,trapped);
+            water+=Math.min(leftmax[i],rightmax[i])-height[i];
         }
         return water;
     }
