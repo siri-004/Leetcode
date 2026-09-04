@@ -13,13 +13,8 @@ class Solution {
         if(head==null||head.next==null){
             return true;
         }
-        ListNode s=head,f=head;
-        while(f!=null&&f.next!=null){
-            s=s.next;
-            f=f.next.next;
-        }
-        ListNode x=reverse(s);
         ListNode y=head;
+        ListNode x=reverse(y);
         while(x!=null){
             if(x.val!=y.val){
                 return false;
@@ -28,14 +23,15 @@ class Solution {
             y=y.next;
         }
         return true;
+
     }
     private ListNode reverse(ListNode head){
         ListNode prev=null;
         while(head!=null){
-            ListNode temp=head.next;
-            head.next=prev;
-            prev=head;
-            head=temp;
+            ListNode newNode=new ListNode(head.val);
+            newNode.next=prev;
+            prev=newNode;
+            head=head.next;
         }
         return prev;
     }
