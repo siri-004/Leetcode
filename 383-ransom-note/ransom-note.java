@@ -1,19 +1,14 @@
 class Solution {
     public boolean canConstruct(String ransomNote, String magazine) {
-        boolean[] used=new boolean[magazine.length()];
+        int[] freq=new int[26];
+        for(int i=0;i<magazine.length();i++){
+            freq[magazine.charAt(i)-'a']++;
+        }
         for(int i=0;i<ransomNote.length();i++){
-            boolean found=false;
-            char ch=ransomNote.charAt(i);
-            for(int j=0;j<magazine.length();j++){
-                if(ch==magazine.charAt(j)&&(!used[j])){
-                    found=true;
-                    used[j]=true;
-                    break;
-                }
-            }
-            if(!found){
+            if(freq[ransomNote.charAt(i)-'a']==0){
                 return false;
             }
+            freq[ransomNote.charAt(i)-'a']--;
         }
         return true;
     }
