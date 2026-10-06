@@ -5,7 +5,7 @@ class Solution {
             sum+=nums[right];
             while(sum>=target){
                 ans=Math.min(ans,right-left+1);
-                sum-=nums[left];
+                sum=sum-nums[left];
                 left++;
             }
         }
