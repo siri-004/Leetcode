@@ -1,6 +1,5 @@
 class Solution {
     public int[] searchRange(int[] nums, int target) {
-        int[] res={-1,-1};
         int left=0,right=nums.length-1;
         int first=-1;
         while(left<=right){
